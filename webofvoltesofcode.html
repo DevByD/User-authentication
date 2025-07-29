@@ -1,0 +1,96 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VaultofCodes - Certificate Verifier</title>
+  <link rel="stylesheet" href="webofvoltesofcode.css"/>
+</head>
+<body>
+  <!-- Branding -->
+  <header class="brand-header">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="AI Logo" class="brand-logo" />
+    <h1 class="brand-title">VaultofCodes</h1>
+  </header>
+
+  <main>
+    <div class="container animate-fade">
+      <!-- Human pic above input -->
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Icon" class="user-pic" />
+
+      <div class="input-wrapper">
+        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Mail Icon" class="mail-icon" />
+        <input id="identifier" type="text" placeholder="Enter Email or ID"/>
+      </div>
+      <button onclick="verifyStudent()">Verify</button>
+    </div>
+
+    <div id="result" class="animate-fade"></div>
+    <div class="spinner hidden"></div>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    function verifyStudent() {
+      const idInput = document.getElementById('identifier');
+      const id = idInput.value.trim();
+      const resultBox = document.getElementById('result');
+
+      if (!id) return alert('Please enter a valid Email or ID');
+
+      showSpinner(true);
+
+      setTimeout(() => {
+        const student = {
+          name: "Dharesh S D",
+          email: "DevByD@example.com",
+          mobile: "1234567890",
+          domain: "Web Development",
+          college: "Presidency University",
+          start: "01 June 2024",
+          duration: "1 Month",
+         photo: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+
+          assignments: [true, false, true, true],
+          certificate: "#"
+        };
+
+        const html = `
+          <div class="card animate-pop">
+            <img src="${student.photo}" alt="Photo" />
+            <h3>${student.name}</h3>
+            <p>Email: ${student.email}</p>
+            <p>Mobile: ${student.mobile}</p>
+            <p>Domain: ${student.domain}</p>
+            <p>College: ${student.college}</p>
+            <p>Start Date: ${student.start}</p>
+            <p>Duration: ${student.duration}</p>
+            <h4>Assignment Status</h4>
+            <div class="assignment-status">
+              ${student.assignments.map((done, i) => `<span>A${i + 1}: ${done ? '✅' : '❌'}</span>`).join('')}
+            </div>
+            <p>Status: Completed</p>
+            <a href="${student.certificate}" target="_blank">View Certificate</a>
+          </div>
+        `;
+
+        resultBox.innerHTML = html;
+        showSpinner(false);
+        showToast('✅ Verified: Dummy student loaded');
+      }, 1200);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.innerText = msg;
+      toast.className = 'toast show';
+      setTimeout(() => toast.className = 'toast', 3000);
+    }
+
+    function showSpinner(show) {
+      document.querySelector('.spinner').style.display = show ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+ body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #eef1f7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.brand-logo {
+  height: 48px;
+}
+
+.brand-title {
+  font-size: 26px;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* User Picture */
+.user-pic {
+  width: 90px;
+  margin-bottom: 20px;
+}
+
+/* Input Wrapper */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mail-icon {
+  width: 20px;
+  position: absolute;
+  left: 12px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 16px 12px 40px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Button */
+button {
+  padding: 14px 30px;
+  font-size: 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Result Card */
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 25px;
+  margin: 40px auto;
+  max-width: 700px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.card img {
+  width: 130px;
+  height: 130px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.card h3, .card h4 {
+  margin: 10px 0;
+  color: #222;
+  text-align: center;
+}
+
+.card p {
+  color: #444;
+  margin: 6px 0;
+  text-align: center;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 12px;
+  color: #007bff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* Assignment Badges */
+.assignment-status {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.assignment-status span {
+  background: #f1f1f1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Spinner */
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #007bff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+.hidden {
+  display: none;
+}
+
+/* Toast */
+.toast {
+  visibility: hidden;
+  min-width: 220px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 14px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 50px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-pop {
+  animation: popIn 0.4s ease-out;
+}
